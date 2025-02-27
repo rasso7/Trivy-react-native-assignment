@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+# preview 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# yolo app
+https://github.com/user-attachments/assets/a090fb08-4b03-4206-b63f-c39c2e89e313
 
-## Get started
+🚀 Installation & Setup
 
-1. Install dependencies
+Follow these steps to install and run the project:
 
-   ```bash
-   npm install
-   ```
+1️⃣ Clone the Repository
 
-2. Start the app
+Download the project from GitHub by running:
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```sh
+git clone <repository_url>
+cd <project_directory>
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2️⃣ Install Dependencies
 
-## Learn more
+Run the following command to install the required dependencies:
 
-To learn more about developing your project with Expo, look at the following resources:
+```sh
+npm install
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+3️⃣ Start the Application
 
-## Join the community
+To launch the app, execute:
 
-Join our community of developers creating universal apps.
+```sh
+npm start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+4️⃣ Running the App
+
+Once the app starts, you can:
+
+Open the app in an Android/iOS simulator.
+
+Scan the QR code using the Expo Go app to run it on a physical device.
+
+ Features Implemented:
+### Bottom Navigation: Screens structured as per the design.
+### Freeze Animation: Applied based on the "Freeze" button action.
+### Front-side Card with Details: Displays user details.
+### Random Data: Implemented using faker-js.
+### Effect on Freeze: Details blur or change effect when frozen.
+
+
+## 📌 Features
+### 📱 Bottom Navigation – Screens structured using React Navigation.
+### ❄️ Freeze Animation – Implemented with react-native-reanimated.
+### 💳 Card with Details – Displays random user details from faker-js.
+### 🎭 Freeze Effect – Details blur when "Freeze" is enabled.
+### 🎨 Styled with Tailwind CSS – nativewind used for styling.
+
+## 📂 Tech Stack
+### React Native exp
+### React Navigation
+### react-native-reanimated (for animation)
+### faker-js (for random data)
+### nativewind (Tailwind CSS for styling)
