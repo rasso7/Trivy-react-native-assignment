@@ -1,13 +1,14 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { HapticTab } from "@/components/HapticTab";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
-import AntDesign from "@expo/vector-icons/AntDesign";
+import { LinearGradient } from "expo-linear-gradient";
+const homeIcon = require("@/assets/images/home.png");
+const ginieIcon = require("@/assets/images/ginie.png");
 
-// Import Background Image
 const tabBarBg = require("@/assets/images/tab1.png");
 
 const TabBarBackgroundImage = () => (
@@ -32,11 +33,12 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackgroundImage,
         tabBarStyle: {
           position: "absolute",
-          height: 72,
+          height: 65,
+          paddingHorizontal: 22,
         },
         tabBarLabelStyle: {
           position: "absolute",
-          bottom: 28, // Move label slightly up
+          bottom: 8, // Move label slightly up
           fontSize: 10, // Adjust size if needed
         },
       }}
@@ -46,14 +48,21 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color, size, focused }) => (
-            <View
-              style={[
-                styles.iconContainer,
-                { borderColor: focused ? "#fff" : "rgba(255,255,255,0.5)" },
-              ]}
+            <LinearGradient
+              colors={focused ? ["white", "#181818"] : ["#555", "#111"]}
+              style={[styles.gradientBorder, { marginBottom: 11 }]}
             >
-              <AntDesign name="home" size={size} color={color} />
-            </View>
+              <View style={styles.iconContainer}>
+                <Image
+                  source={homeIcon}
+                  style={[
+                    styles.icon,
+                    { tintColor: focused ? "white" : "#777" },
+                  ]}
+                  resizeMode="contain"
+                />
+              </View>
+            </LinearGradient>
           ),
         }}
       />
@@ -61,43 +70,39 @@ export default function TabLayout() {
         name="yolo"
         options={{
           title: "Yolo Play",
-          tabBarLabelStyle: {
-            bottom: 12,
-            fontSize: 10,
-          },
           tabBarIcon: ({ color, size, focused }) => (
-            <View
-              style={[
-                styles.iconContainer,
-                {
-                  borderColor: focused ? "#fff" : "rgba(255,255,255,0.5)",
-                  marginBottom: 18, // Keep middle tab icon lifted
-                },
-              ]}
+            <LinearGradient
+              colors={focused ? ["white", "#181818"] : ["#555", "#111"]}
+              style={[styles.gradientBorder, { marginBottom: 27 }]}
             >
-              <MaterialIcons name="qr-code-scanner" size={size} color={color} />
-            </View>
+              <View style={[styles.iconContainer]}>
+                <MaterialIcons
+                  name="qr-code-scanner"
+                  size={focused ? size * 1.2 : size}
+                  color={focused ? "white" : "#777"}
+                />
+              </View>
+            </LinearGradient>
           ),
         }}
       />
-
       <Tabs.Screen
         name="ginie"
         options={{
           title: "Ginie",
           tabBarIcon: ({ color, size, focused }) => (
-            <View
-              style={[
-                styles.iconContainer,
-                { borderColor: focused ? "#fff" : "rgba(255,255,255,0.5)" },
-              ]}
+            <LinearGradient
+              colors={focused ? ["white", "#181818"] : ["#555", "#111"]}
+              style={[styles.gradientBorder, { marginBottom: 11 }]}
             >
-              <MaterialCommunityIcons
-                name="brightness-percent"
-                size={size}
-                color={color}
-              />
-            </View>
+              <View style={[styles.iconContainer]}>
+                <MaterialCommunityIcons
+                  name="brightness-percent"
+                  size={focused ? size * 1.2 : size}
+                  color={focused ? "white" : "#777"}
+                />
+              </View>
+            </LinearGradient>
           ),
         }}
       />
@@ -113,14 +118,20 @@ const styles = StyleSheet.create({
     height: 100,
     bottom: 0,
   },
+  gradientBorder: {
+    padding: 2,
+    borderRadius: 30,
+  },
   iconContainer: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    borderWidth: 2,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 15,
-    paddingBottom: 15,
+  },
+  icon: {
+    width: 27,
+    height: 27,
   },
 });

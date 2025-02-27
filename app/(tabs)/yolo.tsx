@@ -4,7 +4,7 @@ import Feather from "@expo/vector-icons/Feather";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { faker } from "@faker-js/faker";
-
+import { LinearGradient } from "expo-linear-gradient";
 const Yolo = () => {
   const [selected, setSelected] = useState("pay");
   const [isFrozen, setIsFrozen] = useState(true);
@@ -46,38 +46,60 @@ const Yolo = () => {
   return (
     <View className="flex-1 bg-black p-6">
       {/* Title */}
-      <Text className="text-white text-2xl font-bold mt-2">
+      <Text className="text-white text-2xl font-bold mt-4">
         Select Payment Mode
       </Text>
-      <Text className="text-gray-400 mt-4 text-lg">
+      <Text className="text-gray-400 mt-2 text-lg">
         Choose your preferred payment method to make payment.
       </Text>
 
       {/* Payment Mode Buttons */}
       <View className="flex-row mt-4">
-        <TouchableOpacity
-          className={`px-10 py-3 border border-white rounded-full ${
-            selected === "pay" ? "bg-black" : "bg-transparent"
-          }`}
-          onPress={() => setSelected("pay")}
+        {/* Pay Button */}
+        <LinearGradient
+          colors={["white", "#181818"]}
+          style={{
+            borderRadius: 25,
+            padding: 1,
+            marginHorizontal: 5,
+          }}
         >
-          <Text className="text-lg text-white">Pay</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          className={`ml-4 px-10 py-3 border border-red-600 rounded-full ${
-            selected === "card" ? "bg-red-600" : "bg-transparent"
-          }`}
-          onPress={() => setSelected("card")}
-        >
-          <Text
-            className={`text-lg ${
-              selected === "card" ? "text-white" : "text-red-600"
-            }`}
+          <View
+            style={{
+              paddingVertical: 12,
+              paddingHorizontal: 40,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "black", // Fixed color for Pay button
+              borderRadius: 25,
+            }}
           >
-            Card
-          </Text>
-        </TouchableOpacity>
+            <Text style={{ fontSize: 16, color: "white" }}>Pay</Text>
+          </View>
+        </LinearGradient>
+
+        {/* Card Button */}
+        <LinearGradient
+          colors={["#A90808", "rgba(169, 8, 8, 0)"]}
+          style={{
+            borderRadius: 25,
+            padding: 1,
+            marginHorizontal: 5,
+          }}
+        >
+          <View
+            style={{
+              paddingVertical: 12,
+              paddingHorizontal: 40,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "black", // Fixed color for Card button
+              borderRadius: 25,
+            }}
+          >
+            <Text style={{ fontSize: 16, color: "white" }}>Card</Text>
+          </View>
+        </LinearGradient>
       </View>
 
       {/* Card Section */}
@@ -198,17 +220,35 @@ const Yolo = () => {
         className="absolute bottom-[310px] left-[225px] flex items-center"
         onPress={() => setIsFrozen(!isFrozen)}
       >
-        <View
-          className={`w-12 h-12 rounded-full flex items-center justify-center border ${
-            isFrozen ? "border-red-700 bg-black" : "border-white bg-transparent"
-          }`}
+        <LinearGradient
+          colors={
+            isFrozen ? ["#A90808", "rgba(169, 8, 8, 0)"] : ["white", "#181818"]
+          }
+          style={{
+            borderRadius: 25,
+            padding: 1,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
-          <FontAwesome
-            name="snowflake-o"
-            size={18}
-            color={isFrozen ? "red" : "white"}
-          />
-        </View>
+          <View
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "black",
+            }}
+          >
+            <FontAwesome
+              name="snowflake-o"
+              size={18}
+              color={isFrozen ? "red" : "white"}
+            />
+          </View>
+        </LinearGradient>
+
         <Text className={`mt-1 ${isFrozen ? "text-red-600" : "text-white"}`}>
           {isFrozen ? "Unfreeze" : "Freeze"}
         </Text>
