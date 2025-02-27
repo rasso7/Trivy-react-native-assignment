@@ -1,7 +1,7 @@
 # preview 👋
 
 # yolo app
-https://github.com/user-attachments/assets/a090fb08-4b03-4206-b63f-c39c2e89e313
+https://github.com/user-attachments/assets/191dc491-f862-44d6-b271-ff6da6ce9886
 
 🚀 Installation & Setup
 
